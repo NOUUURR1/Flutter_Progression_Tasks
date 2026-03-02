@@ -7,9 +7,21 @@ class ProfileTimelineWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final timelineData = [
-      {"title": "Skills", "subtitle": "Flutter  • Firebase  • REST API"},
-      {"title": "Experience", "subtitle": "Mobile Developer - 2024"},
-      {"title": "Portfolio", "subtitle": "3 Mobile Applications"},
+      {
+        "title": "Skills",
+        "subtitle":
+            "• Flutter  • Dart • Firebase  • MVVM Architecture  • Git & GitHub  •  API Integration   ",
+      },
+      {
+        "title": "Experience",
+        "subtitle":
+            " * Raed Aamal Competition – UCCD\nTop 10 Finalist (5th out of 64 teams)\nBuilt and presented an IoT-based child health monitoring app using Flutter.\n\n * Guest Speaker – Mansoura University\nDelivered a Flutter workshop and showcased a real-world graduation project.\n\n * Mobile Development Trainee – NTI\nCompleted Mobile Track and built a full final project with full mark.\n\n * Volunteer Project – Medical Monitoring System\nDeveloped the Flutter app and integrated Firebase with real sensor data.",
+      },
+      {
+        "title": "Portfolio",
+        "subtitle":
+            "Some of my work – take a look at a few project samples showcasing mobile apps, IoT integration, and UI designs.",
+      },
     ];
     return Column(
       children: List.generate(timelineData.length, (index) {
