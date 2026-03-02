@@ -1,52 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card_app/features/profile/presentation/widgets/profile_timeline.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1F2525),
+      backgroundColor: const Color(0xFF1F2525),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
-        title: Center(child: Text("ProfileCard")),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.light_mode))],
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+        title: const Center(child: Text("ProfileCard")),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.light_mode)),
+        ],
       ),
       body: SingleChildScrollView(
-        child: Stack(
+        child: Column(
           children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                height: 180,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/background.jpg"),
-                    fit: BoxFit.fill,
-                  ),
+            Container(
+              height: 180,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/background.jpg"),
+                  fit: BoxFit.fill,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25, top: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 55,
-                    backgroundColor: Colors.transparent,
-                    backgroundImage: AssetImage("assets/images/Profile.png"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, top: 45),
-                    child: Column(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, top: 25),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage("assets/images/Profile.png"),
+                    ),
+                    const SizedBox(width: 15),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
+                        SizedBox(height: 45),
                         Text(
                           "Nourhan Elsayed",
                           style: TextStyle(
@@ -62,9 +61,16 @@ class ProfileCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+            ),
+
+            const SizedBox(height: 20),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: ProfileTimelineWidget(),
             ),
           ],
         ),
