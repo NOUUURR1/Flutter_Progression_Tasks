@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card_app/features/profile/presentation/widgets/profile_grid_view.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_timeline.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -65,12 +66,15 @@ class ProfileCard extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
-
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 25),
               child: ProfileTimelineWidget(),
+            ),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: ProfileGridView(),
             ),
           ],
         ),
