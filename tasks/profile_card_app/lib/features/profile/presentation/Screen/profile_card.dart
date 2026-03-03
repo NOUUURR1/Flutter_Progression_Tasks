@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card_app/features/profile/presentation/widgets/app_bar.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/footer_actions.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_grid_view.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_timeline.dart';
@@ -10,17 +11,9 @@ class ProfileCard extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF1F2525),
       extendBodyBehindAppBar: false,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
-        ),
-        title: const Center(child: Text("ProfileCard")),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.light_mode)),
-        ],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(56),
+        child: CustomAppBar(),
       ),
       body: SingleChildScrollView(
         child: Column(
