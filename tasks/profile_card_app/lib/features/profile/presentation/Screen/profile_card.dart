@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card_app/features/profile/presentation/widgets/footer_actions.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_grid_view.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_timeline.dart';
 
@@ -8,6 +9,7 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1F2525),
+      extendBodyBehindAppBar: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -66,15 +68,20 @@ class ProfileCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 25),
               child: ProfileTimelineWidget(),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 25),
               child: ProfileGridView(),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: const FooterActions(),
             ),
           ],
         ),

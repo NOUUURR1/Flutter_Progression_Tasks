@@ -9,10 +9,7 @@ class CustomGridView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
-          fit: BoxFit.fill,
-        ),
+        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.fill),
       ),
     );
   }

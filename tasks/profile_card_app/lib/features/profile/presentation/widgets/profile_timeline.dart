@@ -38,7 +38,7 @@ class ProfileTimelineWidget extends StatelessWidget {
           beforeLineStyle: const LineStyle(color: Colors.grey, thickness: 2),
           afterLineStyle: const LineStyle(color: Colors.grey, thickness: 2),
           endChild: Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white10,
