@@ -2,14 +2,26 @@ import 'package:flutter/material.dart';
 
 class CustomGridView extends StatelessWidget {
   final String imageUrl;
-  const CustomGridView({super.key, required this.imageUrl});
+  final VoidCallback? onTap;
+  const CustomGridView({
+    super.key,
+    required this.imageUrl,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.fill),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

@@ -3,6 +3,18 @@ import 'package:timeline_tile/timeline_tile.dart';
 
 class ProfileTimelineWidget extends StatelessWidget {
   const ProfileTimelineWidget({super.key});
+  IconData _getIcon(int index) {
+    switch (index) {
+      case 0:
+        return Icons.code;
+      case 1:
+        return Icons.work;
+      case 2:
+        return Icons.folder;
+      default:
+        return Icons.circle;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +43,34 @@ class ProfileTimelineWidget extends StatelessWidget {
           alignment: TimelineAlign.start,
           isFirst: index == 0,
           isLast: index == timelineData.length - 1,
-          indicatorStyle: const IndicatorStyle(
-            width: 20,
-            color: Color.fromARGB(255, 20, 22, 22),
+          indicatorStyle: IndicatorStyle(
+            width: 30,
+            height: 50,
+            indicator: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                _getIcon(index),
+                color: Theme.of(context).colorScheme.secondary,
+                size: 20,
+              ),
+            ),
           ),
-          beforeLineStyle: const LineStyle(color: Colors.grey, thickness: 2),
-          afterLineStyle: const LineStyle(color: Colors.grey, thickness: 2),
+          beforeLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.primary,
+            thickness: 2,
+          ),
+          afterLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.primary,
+            thickness: 2,
+          ),
           endChild: Container(
             margin: const EdgeInsets.symmetric(vertical: 10),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white10,
+              color: Theme.of(context).cardTheme.color,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -49,13 +78,13 @@ class ProfileTimelineWidget extends StatelessWidget {
               children: [
                 Text(
                   item["title"]!,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 5),
-                Text(item["subtitle"]!),
+                Text(
+                  item["subtitle"]!,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ],
             ),
           ),

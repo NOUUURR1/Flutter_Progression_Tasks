@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card_app/core/constants/app_images.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/app_bar.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/footer_actions.dart';
 import 'package:profile_card_app/features/profile/presentation/widgets/profile_grid_view.dart';
@@ -6,24 +7,24 @@ import 'package:profile_card_app/features/profile/presentation/widgets/profile_t
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1F2525),
-      extendBodyBehindAppBar: false,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(56),
-        child: CustomAppBar(),
-      ),
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
               height: 180,
               width: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/background.jpg"),
+                  image: AssetImage(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? AppImages.darkHeader
+                        : AppImages.lightHeader,
+                  ),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -40,20 +41,20 @@ class ProfileCard extends StatelessWidget {
                     const SizedBox(width: 15),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        SizedBox(height: 45),
+                      children: [
+                        const SizedBox(height: 45),
                         Text(
                           "Nourhan Elsayed",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5,
-                          ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.titleLarge?.copyWith(letterSpacing: 1.5),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           "Flutter Developer",
-                          style: TextStyle(fontSize: 15, letterSpacing: 1.2),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium?.copyWith(letterSpacing: 1.2),
                         ),
                       ],
                     ),
@@ -72,9 +73,9 @@ class ProfileCard extends StatelessWidget {
               child: ProfileGridView(),
             ),
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 25),
-              child: const FooterActions(),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 25),
+              child: FooterActions(),
             ),
           ],
         ),
