@@ -11,6 +11,7 @@ Each folder inside `tasks/` represents a self-contained task or mini-project —
 | Task Folder Name        | Description                                        |
 |-------------------------|----------------------------------------------------|
 | `profile_card_app`      | A single-screen profile card UI demonstrating Image, Name, Bio, Icons, and basic layout using Column, Row, SizedBox, and Card. Optional custom fonts and dark mode toggle included. |
+| `simple_calculator_app` | A basic Flutter calculator that supports user input, arithmetic operations, and simple state management. |
 <!-- Future tasks can be added here in the same format -->
 
 > New tasks will be added as they are completed — one by one.
